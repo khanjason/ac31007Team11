@@ -59,8 +59,11 @@ namespace WindowsFormsApp
             this.Close();
         }
 
-
-        //function to load address given, and show it on map
+        /// <summary>
+        /// function to load address given, and show it on map
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLoadLatLong_Click(object sender, EventArgs e)
         {
             //set up map
@@ -76,19 +79,30 @@ namespace WindowsFormsApp
             else
             {
                 GeoCoderStatusCode statusCode;
-                var pointLatLng = GoogleMapProvider.Instance.GetPoint(txtAddress.Text.Trim(), out statusCode);
-
-                //if location is valid, find and place marker
-                if (statusCode == GeoCoderStatusCode.OK)
-                {
-                    var location = createPoint(pointLatLng.Value.Lat, pointLatLng.Value.Lng);
-                    setMapPosition(location);
-                    placeMarker(location);
-                }
+                string[] words = txtAddress.Text.Split(',');
                 //if location is not valid, show error message
-                else
+                try
                 {
-                    MessageBox.Show("Error: " + statusCode);
+                    if (!checkzipandstate(words[0], words[1]))
+                    {
+                        MessageBox.Show("Please enter location in the correct format.");
+                    }
+                    else
+                    {
+                        var pointLatLng = GoogleMapProvider.Instance.GetPoint(txtAddress.Text.Trim(), out statusCode);
+
+                        //if location is valid, find and place marker
+                        if (statusCode == GeoCoderStatusCode.OK)
+                        {
+                            var location = createPoint(pointLatLng.Value.Lat, pointLatLng.Value.Lng);
+                            setMapPosition(location);
+                            placeMarker(location);
+                        }
+                    }
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("Invalid input");
                 }
             }
         }
@@ -358,7 +372,172 @@ namespace WindowsFormsApp
             }
         }
 
+        public bool containsnumbers(string zip)
+
+        {
+
+            char[] ziparr = zip.ToCharArray();
+            char[] nums = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
+            for (int i = 0; i < ziparr.Length; i++)
+            {
+                if (!(nums.Contains(ziparr[i])))
+                {
+                    return false;
+                }
+
+            }
+
+            return true;
+
+        }
+
+        public bool nospecialcharacters(string buildnum)
+        {
+            char[] buildnumarr = buildnum.ToCharArray();
+            char[] speiChars = new char[] { '!', ',', '.', '?', '#', '£', '$', '^', '&', '*', '(', ')' };
+            foreach (var t in buildnumarr)
+            {
+                if ((speiChars.Contains(t)))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+
+        }
+
+        public bool checkzipandstate(string zip, string state)
+        {
+
+            if (!stateCheck(state))
+            {
+                return false;
+            }
+            else if(!checkZip(zip))
+            {
+                return false;
+            }
+            else
+            {
+                Dictionary<string, string> statezipDictionary =
+                    new Dictionary<string, string>();
+                statezipDictionary.Add("CT", "0");
+                statezipDictionary.Add("MA", "0");
+                statezipDictionary.Add("ME", "0");
+                statezipDictionary.Add("NH", "0");
+                statezipDictionary.Add("NJ", "0");
+                statezipDictionary.Add("RI", "0");
+                statezipDictionary.Add("NY", "01");
+                statezipDictionary.Add("VT", "0");
+                statezipDictionary.Add("VI", "0");
+                statezipDictionary.Add("DE", "1");
+                statezipDictionary.Add("PA", "1");
+                statezipDictionary.Add("MD", "2");
+                statezipDictionary.Add("NC", "2");
+                statezipDictionary.Add("SC", "2");
+                statezipDictionary.Add("VA", "2");
+                statezipDictionary.Add("WV", "2");
+                statezipDictionary.Add("AL", "3");
+                statezipDictionary.Add("FL", "3");
+                statezipDictionary.Add("GA", "3");
+                statezipDictionary.Add("MS", "3");
+                statezipDictionary.Add("TN", "3");
+                statezipDictionary.Add("IN", "4");
+                statezipDictionary.Add("KY", "4");
+                statezipDictionary.Add("MI", "4");
+                statezipDictionary.Add("OH", "4");
+                statezipDictionary.Add("IA", "5");
+                statezipDictionary.Add("MN", "5");
+                statezipDictionary.Add("MT", "5");
+                statezipDictionary.Add("ND", "5");
+                statezipDictionary.Add("SD", "5");
+                statezipDictionary.Add("WI", "5");
+                statezipDictionary.Add("IL", "6");
+                statezipDictionary.Add("KS", "6");
+                statezipDictionary.Add("MO", "6");
+                statezipDictionary.Add("NE", "6");
+                statezipDictionary.Add("AR", "7");
+                statezipDictionary.Add("LA", "7");
+                statezipDictionary.Add("OK", "7");
+                statezipDictionary.Add("TX", "7");
+                statezipDictionary.Add("AZ", "8");
+                statezipDictionary.Add("CO", "8");
+                statezipDictionary.Add("ID", "8");
+                statezipDictionary.Add("NM", "8");
+                statezipDictionary.Add("NV", "8");
+                statezipDictionary.Add("UT", "8");
+                statezipDictionary.Add("WY", "8");
+                statezipDictionary.Add("AK", "9");
+                statezipDictionary.Add("CA", "9");
+                statezipDictionary.Add("OR", "9");
+                statezipDictionary.Add("WA", "9");
+
+                char[] pre = zip.ToCharArray();
+                string prefix = pre[0].ToString();
+
+                if (!(statezipDictionary[state].Contains(prefix)))
+                {
+                    return false;
+                }
+                return true;
+            }
+
+        }
+
+
+
+
+        public bool checkZip(string zip)
+        {
+            if (zip.Length != 5)
+            {
+                return false;
+                //throw new System.ArgumentException("zip code must be 5 characters long");
+            }
+            if (containsnumbers(zip) != true)
+            {
+                return false;
+                //throw new System.ArgumentException("zip code must only contain numbers");
+            }
+
+
+            return true;
+
+
+        }
+
+        public bool stateCheck(string State)
+        {
+
+            if (State.Length != 2)
+            {
+                throw new System.ArgumentException("state code must be 2 characters long");
+
+            }
+            string[] statelist =
+            {
+                "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY",
+                "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND",
+                "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
+            };
+
+            if (!(statelist.Contains(State)))
+            {
+                return false;
+                throw new System.ArgumentException("state code must be valid US state postal code");
+
+
+            }
+            return true;
+
+
+
+        }
+
     }
+
+
 
 
     

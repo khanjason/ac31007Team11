@@ -7,3 +7,27 @@ D:\VS data\WindowsFormsApp\obj\Debug\WindowsFormsApp.csproj.GenerateResource.cac
 D:\VS data\WindowsFormsApp\obj\Debug\WindowsFormsApp.exe
 D:\VS data\WindowsFormsApp\obj\Debug\WindowsFormsApp.pdb
 D:\VS data\WindowsFormsApp\obj\Debug\WindowsFormsApp.map.resources
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\WindowsFormsApp.exe.config
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\WindowsFormsApp.exe
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\WindowsFormsApp.pdb
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\EntityFramework.dll
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\GMap.NET.Core.dll
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\GMap.NET.WindowsForms.dll
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\GMap.NET.WindowsPresentation.dll
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\System.Data.SQLite.dll
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\EntityFramework.xml
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\System.Data.SQLite.xml
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\obj\Debug\WindowsFormsApp.csprojAssemblyReference.cache
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\obj\Debug\WindowsFormsApp.map.resources
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\obj\Debug\WindowsFormsApp.Properties.Resources.resources
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\obj\Debug\WindowsFormsApp.csproj.GenerateResource.cache
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\obj\Debug\WindowsFormsApp.csproj.CopyComplete
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\obj\Debug\WindowsFormsApp.exe
+C:\Users\arran\Downloads\ac31007Team11-UIDesign\WindowsFormsApp\obj\Debug\WindowsFormsApp.pdb

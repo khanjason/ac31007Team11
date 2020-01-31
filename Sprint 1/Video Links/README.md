@@ -1,5 +1,5 @@
-https://youtu.be/9PpTayR8Fjk
+Pair programming one - https://youtu.be/9PpTayR8Fjk
 
-https://youtu.be/qyNhzijnv-A
+Pair programming two - https://youtu.be/qyNhzijnv-A
 
-https://youtu.be/QIL8DTQUfZQ
+Scrum meeting - https://youtu.be/QIL8DTQUfZQ

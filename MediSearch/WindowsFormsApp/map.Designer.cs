@@ -43,6 +43,7 @@
             this.trackBar4 = new System.Windows.Forms.TrackBar();
             this.trackBar3 = new System.Windows.Forms.TrackBar();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txbInfo = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblDestination = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -50,7 +51,6 @@
             this.mapWindow = new GMap.NET.WindowsForms.GMapControl();
             this.btnLoadLatLong = new System.Windows.Forms.Button();
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txbInfo = new System.Windows.Forms.TextBox();
             this.txbCodeSearch = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trbPrice)).BeginInit();
@@ -216,6 +216,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Information";
             // 
+            // txbInfo
+            // 
+            this.txbInfo.Location = new System.Drawing.Point(6, 19);
+            this.txbInfo.Multiline = true;
+            this.txbInfo.Name = "txbInfo";
+            this.txbInfo.ReadOnly = true;
+            this.txbInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txbInfo.Size = new System.Drawing.Size(305, 450);
+            this.txbInfo.TabIndex = 0;
+            // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(889, 25);
@@ -231,9 +241,9 @@
             this.lblDestination.AutoSize = true;
             this.lblDestination.Location = new System.Drawing.Point(12, 11);
             this.lblDestination.Name = "lblDestination";
-            this.lblDestination.Size = new System.Drawing.Size(60, 13);
+            this.lblDestination.Size = new System.Drawing.Size(341, 13);
             this.lblDestination.TabIndex = 7;
-            this.lblDestination.Text = "Destination";
+            this.lblDestination.Text = "Please enter your location in the format \'ZIPCODE,STATE\' (90210,CA):";
             // 
             // progressBar1
             // 
@@ -297,16 +307,6 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(280, 20);
             this.txtAddress.TabIndex = 12;
-            // 
-            // txbInfo
-            // 
-            this.txbInfo.Location = new System.Drawing.Point(6, 19);
-            this.txbInfo.Multiline = true;
-            this.txbInfo.Name = "txbInfo";
-            this.txbInfo.ReadOnly = true;
-            this.txbInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txbInfo.Size = new System.Drawing.Size(305, 450);
-            this.txbInfo.TabIndex = 0;
             // 
             // txbCodeSearch
             // 

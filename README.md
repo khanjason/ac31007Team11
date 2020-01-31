@@ -1,12 +1,12 @@
 # AC31007 - Team11
 
 Team members
-- Jason Khan
-- Arran Roy
-- Paul Ritch
-- Kyle Leggate
-- Melvin Binu
-- Baosong Lin
+- Jason Khan: 180024391
+- Arran Roy: 170009353
+- Paul Ritch: 170011444
+- Kyle Leggate: 170011286
+- Melvin Binu: 180024351
+- Baosong Lin: 180026801
 
 Task Management
 - https://trello.com/b/287K2pEG

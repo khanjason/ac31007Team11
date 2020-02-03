@@ -535,6 +535,15 @@ namespace WindowsFormsApp
 
         }
 
+        private void mapWindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDestination_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

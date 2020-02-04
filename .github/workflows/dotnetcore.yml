@@ -14,7 +14,7 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: Build with dotnet
-      run: dotnet build ".\..\..\Source Code\MediSearch\WindowsFormsApp\WindowsFormsApp.sln" --configuration Release
+      run: dotnet build ".\..\..\Source%20Code\MediSearch\WindowsFormsApp\WindowsFormsApp.sln" --configuration Release
     - name: test
       run: dotnet test --verbosity normal
 

@@ -93,6 +93,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessibilityMethods.cs" />
     <Compile Include="AccessibilityTesting.cs" />
     <Compile Include="DistanceOutOfRangeException.cs" />
     <Compile Include="map.cs">

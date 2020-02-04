@@ -42,7 +42,7 @@ namespace WindowsFormsApp
             f.Font = new Font(familyName: map.DefaultFont.FontFamily.ToString(), size);
             if ((f.Font.Size) == size)
             {
-
+                
                 r = true;
             }
             else
@@ -52,6 +52,28 @@ namespace WindowsFormsApp
             Assert.True(r, $"Font size was not changed {map.DefaultFont.Size}");
         }
 
+        [Theory]
+        [InlineData("Red")]
+        public void Test_fontcolour(string col)
+        {
+            bool r;
+            Form f = new map();
+            Color colour = f.ForeColor;
+            if (col == "Red") colour = Color.Red;
+
+            f.ForeColor = colour;
+
+            if (f.ForeColor == Color.Red)
+            {
+                r = true;
+
+            }
+            else
+            {
+                r = false;
+            }
+            Assert.True(r,"font colour not changed");
+        }
         
     }
 }

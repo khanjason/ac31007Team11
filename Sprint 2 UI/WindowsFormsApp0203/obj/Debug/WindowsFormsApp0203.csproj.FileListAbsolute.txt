@@ -1,0 +1,11 @@
+D:\VS data\WindowsFormsApp0203\bin\Debug\WindowsFormsApp0203.exe.config
+D:\VS data\WindowsFormsApp0203\bin\Debug\WindowsFormsApp0203.exe
+D:\VS data\WindowsFormsApp0203\bin\Debug\WindowsFormsApp0203.pdb
+D:\VS data\WindowsFormsApp0203\obj\Debug\WindowsFormsApp0203.csprojAssemblyReference.cache
+D:\VS data\WindowsFormsApp0203\obj\Debug\WindowsFormsApp0203.Properties.Resources.resources
+D:\VS data\WindowsFormsApp0203\obj\Debug\WindowsFormsApp0203.csproj.GenerateResource.cache
+D:\VS data\WindowsFormsApp0203\obj\Debug\WindowsFormsApp0203.exe
+D:\VS data\WindowsFormsApp0203\obj\Debug\WindowsFormsApp0203.pdb
+D:\VS data\WindowsFormsApp0203\obj\Debug\WindowsFormsApp0203.Form1_searchandhistory.resources
+D:\VS data\WindowsFormsApp0203\obj\Debug\WindowsFormsApp0203.Form2_map.resources
+D:\VS data\WindowsFormsApp0203\obj\Debug\WindowsFormsApp0203.Form3_information.resources

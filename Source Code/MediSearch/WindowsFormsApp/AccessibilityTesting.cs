@@ -18,12 +18,10 @@ namespace WindowsFormsApp
         public void Test_getfontsize()
         {
             bool r;
-            Form f = new map();
+            Form f;
+            f = new map();
             if ((map.DefaultFont) != null)
-            {
-
                 r = true;
-            }
             else
             {
                 r = false;
@@ -37,18 +35,14 @@ namespace WindowsFormsApp
         public void Test_changefontsize(string s)
         {
             bool r;
-            float size = Convert.ToSingle(s, new CultureInfo("en-gb"));
-            Form f = new map();
-            f.Font = new Font(familyName: map.DefaultFont.FontFamily.ToString(), size);
+            float size;
+            size = Convert.ToSingle(s, new CultureInfo("en-gb"));
+            Form f;
+            f = new map {Font = new Font(Control.DefaultFont.FontFamily.ToString(), size)};
             if ((f.Font.Size) == size)
-            {
-                
                 r = true;
-            }
             else
-            {
                 r = false;
-            }
             Assert.True(r, $"Font size was not changed {map.DefaultFont.Size}");
         }
 
@@ -57,21 +51,18 @@ namespace WindowsFormsApp
         public void Test_fontcolour(string col)
         {
             bool r;
-            Form f = new map();
+            Form f;
+            f = new map();
             Color colour = f.ForeColor;
             if (col == "Red") colour = Color.Red;
 
             f.ForeColor = colour;
 
             if (f.ForeColor == Color.Red)
-            {
                 r = true;
-
-            }
             else
-            {
                 r = false;
-            }
+
             Assert.True(r,"font colour not changed");
         }
         

@@ -37,23 +37,30 @@
             this.Go_page1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.Close_page1 = new System.Windows.Forms.Button();
             this.Continue_page1 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.trbPrice = new System.Windows.Forms.TrackBar();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbDistance = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trbPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(564, 188);
+            this.label1.Location = new System.Drawing.Point(472, 190);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 40);
             this.label1.TabIndex = 0;
@@ -82,11 +89,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(564, 458);
+            this.label2.Location = new System.Drawing.Point(472, 456);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 40);
+            this.label2.Size = new System.Drawing.Size(197, 40);
             this.label2.TabIndex = 3;
-            this.label2.Text = "To";
+            this.label2.Text = "Procedure";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox2
@@ -100,9 +107,9 @@
             // Go_page1
             // 
             this.Go_page1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.Go_page1.Location = new System.Drawing.Point(1131, 638);
+            this.Go_page1.Location = new System.Drawing.Point(691, 614);
             this.Go_page1.Name = "Go_page1";
-            this.Go_page1.Size = new System.Drawing.Size(147, 62);
+            this.Go_page1.Size = new System.Drawing.Size(385, 62);
             this.Go_page1.TabIndex = 5;
             this.Go_page1.Text = "Go";
             this.Go_page1.UseVisualStyleBackColor = true;
@@ -119,36 +126,15 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox5);
-            this.groupBox1.Controls.Add(this.checkBox4);
+            this.groupBox1.Controls.Add(this.checkBox2);
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 141);
+            this.groupBox1.Location = new System.Drawing.Point(12, 582);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(411, 572);
+            this.groupBox1.Size = new System.Drawing.Size(411, 177);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "History";
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(22, 216);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(133, 36);
-            this.checkBox5.TabIndex = 4;
-            this.checkBox5.Text = "Place B";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(22, 364);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(134, 36);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "Place C";
-            this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // checkBox1
             // 
@@ -210,11 +196,95 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "(Process number)";
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(222, 68);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(133, 36);
+            this.checkBox2.TabIndex = 1;
+            this.checkBox2.Text = "Place B";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cmbDistance);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.lblPrice);
+            this.groupBox2.Controls.Add(this.trbPrice);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(12, 150);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(411, 426);
+            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Filter";
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Location = new System.Drawing.Point(153, 106);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(31, 32);
+            this.lblPrice.TabIndex = 21;
+            this.lblPrice.Text = "0";
+            this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPrice.Click += new System.EventHandler(this.lblPrice_Click);
+            // 
+            // trbPrice
+            // 
+            this.trbPrice.Location = new System.Drawing.Point(143, 67);
+            this.trbPrice.Maximum = 40;
+            this.trbPrice.Name = "trbPrice";
+            this.trbPrice.Size = new System.Drawing.Size(235, 45);
+            this.trbPrice.TabIndex = 20;
+            this.trbPrice.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trbPrice.Scroll += new System.EventHandler(this.trbPrice_Scroll);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 67);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 32);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Price";
+            // 
+            // cmbDistance
+            // 
+            this.cmbDistance.FormattingEnabled = true;
+            this.cmbDistance.Items.AddRange(new object[] {
+            "Within 1 Mile",
+            "Within 5 Miles",
+            "Within 10 Miles",
+            "Within 20 Miles",
+            "Within 40 Miles",
+            "Within 80 Miles",
+            "Within 120 Miles",
+            "Within 150 Miles",
+            "Over 150 Miles"});
+            this.cmbDistance.Location = new System.Drawing.Point(143, 147);
+            this.cmbDistance.Name = "cmbDistance";
+            this.cmbDistance.Size = new System.Drawing.Size(235, 40);
+            this.cmbDistance.TabIndex = 23;
+            this.cmbDistance.SelectedIndexChanged += new System.EventHandler(this.cmbDistance_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 147);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(131, 32);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Distance";
+            // 
             // Form1_searchandhistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1571, 886);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox3);
@@ -233,6 +303,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trbPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,14 +321,19 @@
         private System.Windows.Forms.Button Go_page1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button Close_page1;
         private System.Windows.Forms.Button Continue_page1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.TrackBar trbPrice;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbDistance;
+        private System.Windows.Forms.Label label6;
     }
 }
 

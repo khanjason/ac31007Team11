@@ -35,5 +35,22 @@ namespace WindowsFormsApp0203
             Form3_information frm3 = new Form3_information();//实例化第二个窗体.
             frm3.Show();//然后显示出来.
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Continue_page1_Click(object sender, EventArgs e)
+        {
+            Hide();//然后关闭.
+            Form3_information frm3 = new Form3_information();//实例化第二个窗体.
+            frm3.Show();//然后显示出来.
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

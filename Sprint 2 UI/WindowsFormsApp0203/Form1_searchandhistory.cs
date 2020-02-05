@@ -45,5 +45,20 @@ namespace WindowsFormsApp0203
         {
             Close();
         }
+
+        private void cmbDistance_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPrice_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trbPrice_Scroll(object sender, EventArgs e)
+        {
+            lblPrice.Text = (trbPrice.Value * 5000).ToString();
+        }
     }
 }

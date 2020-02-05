@@ -1,0 +1,16 @@
+variables:
+  NUGET_PATH: 'C:\Tools\nuget.exe'
+  MSBUILD_PATH: 'D:\vs\MSBuild\15.0\Bin\amd64\msbuild.exe'
+
+
+stages:
+  - build
+
+
+build_job:
+  stage: build
+  only:
+    - branches
+  script:
+    - '& "$env:NUGET_PATH" restore'
+    - '& "$env:MSBUILD_PATH" /p:Configuration=Release /clp:ErrorsOnly'

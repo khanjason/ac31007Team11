@@ -51,3 +51,52 @@ Closing:
 
   Reminding the group to help eachother where possible. If you find a resource that may be helpful to others, share it on the Slack. Examples of this already happening were given (Arran sharing map resources to Melvin, Jason sharing unit testing resources). 
   
+  
+Scrum 2 (04/02/20)
+
+Jason:
+
+  Have done:
+    Worked on adding accessibility features. Tests have been written, and basic methods created. Also done some work trying to implement continuous integration using GitHub workflow, but ran into problems and couldn't complete this. 
+  Will do:
+    Need to combine the accessibility features into the final UI. Can do this once map functionality and UI are finalised
+  Problems:
+    Having trouble with the CI in GitHub workflows, YML script fails to build the solution. This has put to the side to hopefull come back to later. 
+    
+Melvin:
+
+  Have done:
+    Working functionality using the users live location, taking in the GPS of the current device. This returns a latitude and longitude, which can later be used with the map features
+  Will do:
+    Update sprint backlog with the teams work from today, and combine live location functionality with map once it has been finalised. 
+
+Paul:
+
+  Have done:
+    Completed tests for the search functionality, and written the code to pass the tests. Matches are returned as a list
+  Will do:
+    Need to combine this functionality with the UI once finalised by Lin
+  Problems:
+    
+Arran:
+
+  Have done:
+    Finished spike research about finding distance between points. Have also finished research with creating routes between two points on the map, and displaying these. Tests have begun to be written for adding this function
+  Will do:
+    Finish tests and implement routing feature. Work with Kyle to combine routing with the hospital addresses returned by his search procedure
+    
+Lin:
+
+Have done:
+  Finished design of UI, and started implementing this into a windows forms application
+Will do:
+  Once this is finished, will need to take feedback from the team to ensure UI is suitable for each aspect of the product. May need to change parts, depending on how the team feels
+  
+Kyle:
+
+  Have done:
+  
+  Will do:
+  
+
+  

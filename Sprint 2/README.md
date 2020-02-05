@@ -76,7 +76,6 @@ Paul:
     Completed tests for the search functionality, and written the code to pass the tests. Matches are returned as a list
   Will do:
     Need to combine this functionality with the UI once finalised by Lin
-  Problems:
     
 Arran:
 
@@ -95,8 +94,48 @@ Will do:
 Kyle:
 
   Have done:
-  
+    Researched how to let user choose specific hospital result from dropdown list. 
   Will do:
-  
+    Begin test driven development for having hospitals being disaplyed on the map. Will work with Arran
 
+Scrum 3 (05/02/20)
+
+Opening Remarks:
+  "We're in the endgame now" - Scrum Master
+  
+Jason:
+  Have done:
+    Worked to fix the issues with continuous integration. Used GitLab to help with this. GitLab linked to the GitHub, then wrote the YML file
+  Will do:
+    Overlook UI development, as the requirements have been changing so the UI must reflect this. Can also help anyone if help is needed. Control flow of merging branches while integrating features, to ensure git is used correctly.
+    
+Melvin:
+  Have done:
+    Completed finishing touches on user live location functions
+  Will do:
+    Once UI is finished, will need to integrate live location function with this. Will also update burndown chart for the day
+    
+Kyle:
+  Have done:
+    Worked with Arran in getting the hospitals displayed on the map
+  Will do:
+    Must put this with UI once it is finished
+    
+Paul:
+  Have done:
+    Added more functionality to search procedure. When multiple similar results are shown, these are combined into one. Also now each hospital is only displayed once
+  Will do:
+    Need to start creating a test plan, tests and then writing the code for returning values that are not in file. For example, if the user inputs nose bleed, epistaxis will be returned. 
+    
+Arran:
+  Have done:
+    Wrote implementation of finding distance between two points. Worked with Kyle to display returned hospitals on the map. 
+  Will do:
+    Add functionality to find distances to each hospital and draw a route for the selected hospital
+    
+Lin:
+  Have done:
+    Changed the UI according to team feedback
+  Will do:
+    May have to change the UI further during collaboration, as team members insert their code into UI
   

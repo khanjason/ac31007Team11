@@ -14,5 +14,5 @@ build_job:
     - branches
   script:
     - '& cd "$env:PROJ_PATH"'
-    - '& "$env:NUGET_PATH" restore'
-    - '& "$env:MSBUILD_PATH" /p:Configuration=Release /clp:ErrorsOnly'
+    - '& "$env:NUGET_PATH" restore "$env:PROJ_PATH"'
+    - '& "$env:MSBUILD_PATH" "$env:PROJ_PATH" /p:Configuration=Release /clp:ErrorsOnly'

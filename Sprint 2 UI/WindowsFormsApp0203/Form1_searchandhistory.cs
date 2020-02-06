@@ -28,7 +28,7 @@ namespace WindowsFormsApp0203
 
 			procedureSearch();
 			loadMap(frm2);
-			displayReults(frm2);
+			displayResults(frm2);
 		}
 
 		public void Close_page1_Click(object sender, EventArgs e)
@@ -43,16 +43,17 @@ namespace WindowsFormsApp0203
 		public double priceFloor = 0;
 		public double priceCeiling = 200000;
 		public double distFloor = 0;
-		public double distCeiling = 3000;
+		public double distCeiling = 5000;
 
 		//Active minimum and maximum range of values for searching
 		public double priceMin = 0;
 		public double priceMax = 10000;
 		public double distMin = 0;
-		public double distMax = 3000;
+		public double distMax = 5000;
 
 		public List<String[]> hospitalDetailsList = new List<String[]>();
 		public List<PointLatLng> pointsList = new List<PointLatLng>();
+		public List<double> hospitalDistanceList = new List<double>();
 		public GeoCoderStatusCode statusCode;
 
 		public Form1_searchandhistory()
@@ -116,55 +117,9 @@ namespace WindowsFormsApp0203
 				}
 				catch (Exception)
 				{
-					MessageBox.Show("Invalid input with address");
+					//MessageBox.Show("Invalid input with address" + e.ToString());
 				}
 			}
-
-			//if input also given in destination box, create route
-			//if (!txtDestination.Text.Trim().Equals(""))
-			//{
-			//	string[] destinationString = txtDestination.Text.Split(',');
-			//	try
-			//	{
-			//		//add destination point to list
-			//		if (!checkzipandstate(destinationString[0], destinationString[1]))
-			//		{
-			//			MessageBox.Show("Please enter destination in the correct format.");
-			//		}
-			//		else
-			//		{
-			//			var pointLatLng = GoogleMapProvider.Instance.GetPoint(txtDestination.Text.Trim(), out statusCode);
-
-			//			//if location is valid, find and place marker
-			//			if (statusCode == GeoCoderStatusCode.OK)
-			//			{
-			//				var location = createPoint(pointLatLng.Value.Lat, pointLatLng.Value.Lng);
-			//				setMapPosition(location);
-			//				placeMarker(location);
-			//				addPointToList(location);
-
-			//				//create route variable to hold root info
-			//				var route = GoogleMapProvider.Instance.GetRoute(pointsList[0], pointsList[1], false, false, 5);
-
-			//				//create variable for adding route to map
-			//				var routeToAdd = new GMapRoute(route.Points, "Route just added");
-
-			//				//add routes to overlay
-			//				var routeOverlay = new GMapOverlay();
-			//				routeOverlay.Routes.Add(routeToAdd);
-			//				mapWindow.Overlays.Add(routeOverlay);
-
-			//				//show distnce between locations on the map
-			//				lblDistance.Text += Math.Round(route.Distance, 2) + "km";
-			//			}
-			//		}
-			//	}
-			//	catch (Exception)
-			//	{
-			//		MessageBox.Show("Invalid input with destination");
-			//	}
-
-			//}
 		}
 
 		//function to create nodes on each hospital returned
@@ -179,12 +134,58 @@ namespace WindowsFormsApp0203
 				{
 					var location = createPoint(pointLatLng.Value.Lat, pointLatLng.Value.Lng);
 					setMapPosition(location, frm2);
-					placeMarker(location, frm2);
-					addPointToList(location);
+
+					var route = GoogleMapProvider.Instance.GetRoute(pointsList[0], location, false, false, 5);
+
+					if(checkDist(Math.Round(route.Distance, 2)))
+					{
+						addPointToList(location);
+						placeMarker(location, frm2);
+						hospitalDistanceList.Add(Math.Round(route.Distance, 2));
+					}
+					else
+					{
+						hospitalDetailsList.Remove(hospital);
+					}
+				}
+			}
+
+		}
+
+		//function to create a route between first 
+		private void createRoute(Form2_map frm2)
+		{
+			for (int i = 1;i < pointsList.Count;i++)
+			{
+				//create route variable to hold root info
+				var route = GoogleMapProvider.Instance.GetRoute(pointsList[0], pointsList[i], false, false, 5);
+
+				//create variable for adding route to map
+				var routeToAdd = new GMapRoute(route.Points, "Route just added");
+
+				var distance = Math.Round(route.Distance, 2);
+
+				if (checkDist(distance))
+				{
+					//string distance into distance list
+					hospitalDistanceList.Add(distance);
+				}
+				else
+				{
+					hospitalDetailsList.RemoveAt(i - 1);
 				}
 
 			}
 		}
+
+
+		/*private void displayRoute()
+		{
+			//add routes to overlay
+			var routeOverlay = new GMapOverlay();
+			routeOverlay.Routes.Add(routeToAdd);
+			frm2.mapWindow.Overlays.Add(routeOverlay);
+		}*/
 
 		//function to create new point
 		public PointLatLng createPoint(double lat, double lng)
@@ -220,7 +221,7 @@ namespace WindowsFormsApp0203
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		public void CmbDistance_SelectedIndexChanged(object sender, EventArgs e)
+		private void cmbDistance_SelectedIndexChanged_1(object sender, EventArgs e)
 		{
 			double distance = distanceValues[cmbDistance.SelectedItem.ToString()];
 
@@ -232,6 +233,8 @@ namespace WindowsFormsApp0203
 			{
 				setDistRange(151, distance);
 			}
+
+			MessageBox.Show(distMax.ToString());
 		}
 
 		/// <summary>
@@ -263,15 +266,29 @@ namespace WindowsFormsApp0203
 		/// Displays the hospital list
 		/// </summary>
 		/// <param name="frm2">A reference to the second form</param>
-		public void displayReults(Form2_map frm2)
+		public void displayResults(Form2_map frm2)
 		{
 			frm2.lstHospitalDetails.Items.Clear();
 			string s = "";
-			foreach (string[] line in hospitalDetailsList)
+			int i = 0;
+
+			if (hospitalDistanceList.Count != 0)
 			{
-				frm2.lstHospitalDetails.Items.Add(ConvertStringArrayToString(line));
-				frm2.lstHospitalDetails.Items.Add("\r\n");
+				foreach (string[] line in hospitalDetailsList)
+				{
+					frm2.lstHospitalDetails.Items.Add(ConvertStringArrayToString(line));
+					frm2.lstHospitalDetails.Items.Add(hospitalDistanceList[i]);
+					frm2.lstHospitalDetails.Items.Add(line[10]);
+					frm2.lstHospitalDetails.Items.Add("\r\n");
+					i++;
+				}
 			}
+			else
+			{
+				MessageBox.Show("No results in range");
+			}
+
+				
 		}
 
 		/// <summary>
@@ -450,6 +467,7 @@ namespace WindowsFormsApp0203
 					{
 						fields[i] = fields[i].Replace(@"\", @"\\");
 					}
+
 					listOfOptions.Add(fields);
 				}
 			}
@@ -459,6 +477,13 @@ namespace WindowsFormsApp0203
 		public List<string[]> sortByPrice(List<string[]> detailList)
 		{
 			detailList = detailList.OrderBy(arr => Decimal.Parse(arr[10])).ToList();//.ThenBy(arr => Decimal.Parse(arr[10])).ToList();
+
+
+			if (detailList.Count > 10)
+			{
+				detailList.RemoveRange(10, detailList.Count-10);
+			}
+
 			return detailList;
 		}
 
@@ -641,5 +666,7 @@ namespace WindowsFormsApp0203
 			}
 			return true;
 		}
+
+
 	}
 }

@@ -139,3 +139,45 @@ Lin:
   Will do:
     May have to change the UI further during collaboration, as team members insert their code into UI
   
+Scrum 4 (06/02/20)
+
+Opening:
+  Scrum master letting team know that the GitHub flow was good today, better than in previous sprint.
+
+Jason:
+  Have done:
+    Jason has been supervising the integration and overseeing Kyle and Arran with their Git usage. Has also been approving pull requests, and making sure code  is ready for merging with higher branches. Also filmed the TTD video
+  Will do:
+    Focus being placed on deliverables, must ensure sprint review report is finished and ready to submit
+    
+Paul:
+  Have done:
+    Completed search function, allowing users to search by laymans terms and having relevant results returned
+  Will do:
+    Integrate with UI
+    
+Kyle:
+  Have done:
+    Working with Arran, integrating map and distance range functions into new UI
+  Will do:
+    Additional functionality to be added to final UI. Option for user to select hospital
+    
+Melvin:
+  Have done:
+    Filmed TDD video, and wrote report for TDD
+  Will do:
+    Integrate sort by distance and live location functions into final UI
+    
+Lin:
+  Have done:
+    Finished UI according to team feedback
+  Will do:
+  
+Arran:
+  Have done:
+    Working with Kyle, integrated map and distance range functions into new UI
+  Will do:
+    Additional functionality to be added to final UI. Showing users chosen hospital on map with route drawn
+    
+Closing:
+  Be careful with merging on Git. To implement by priority: distance shown, search feature, live location. If we run out of time it is okay, as clients have told us what to prioritise

@@ -1,0 +1,6 @@
+C:\Users\melvi\Desktop\Sprint\LiveLocation\bin\Debug\LiveLocation.exe.config
+C:\Users\melvi\Desktop\Sprint\LiveLocation\bin\Debug\LiveLocation.exe
+C:\Users\melvi\Desktop\Sprint\LiveLocation\bin\Debug\LiveLocation.pdb
+C:\Users\melvi\Desktop\Sprint\LiveLocation\obj\Debug\LiveLocation.csprojAssemblyReference.cache
+C:\Users\melvi\Desktop\Sprint\LiveLocation\obj\Debug\LiveLocation.exe
+C:\Users\melvi\Desktop\Sprint\LiveLocation\obj\Debug\LiveLocation.pdb

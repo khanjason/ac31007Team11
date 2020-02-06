@@ -28,5 +28,10 @@ namespace WindowsFormsApp0203
             Form2_map frm2 = new Form2_map();//实例化第二个窗体.
             frm2.Show();//然后显示出来.
         }
-    }
+
+		private void Form3_information_Load(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

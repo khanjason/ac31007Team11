@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using PriceAndDistanceRange;
 
 namespace WindowsFormsApp0203
 {
@@ -16,12 +23,7 @@ namespace WindowsFormsApp0203
         {
             InitializeComponent();
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+		
         private void Back_page2_Click(object sender, EventArgs e)
         {
             Hide();//然后关闭.
@@ -35,22 +37,24 @@ namespace WindowsFormsApp0203
             Form3_information frm3 = new Form3_information();//实例化第二个窗体.
             frm3.Show();//然后显示出来.
         }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
+		
         private void Continue_page1_Click(object sender, EventArgs e)
         {
             Hide();//然后关闭.
             Form3_information frm3 = new Form3_information();//实例化第二个窗体.
             frm3.Show();//然后显示出来.
         }
+		
+		private void Form2_map_Load(object sender, EventArgs e)
+		{
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
+		}
 
-        }
-    }
+		private void groupBox2_Enter(object sender, EventArgs e)
+		{
+
+		}
+
+		
+	}
 }

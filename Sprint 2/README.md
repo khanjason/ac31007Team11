@@ -181,3 +181,32 @@ Arran:
     
 Closing:
   Be careful with merging on Git. To implement by priority: distance shown, search feature, live location. If we run out of time it is okay, as clients have told us what to prioritise
+  
+  
+Scrum 5 (07/02/20)
+Opening:
+  We ave our demo sorted and working, progress has been really good. Now we have to go to client meeting, remember to all be professional and polite
+
+Jason:
+  Supervising Git flow, and ensuring inegration goes smoothly
+
+Lin:
+  Helped with UI implementation/integration
+
+Paul:
+  Integrated search by laymans terms function. Allows user to enter english words as input, as opposed to medical code for the procedure. If multiple procedures may apply, then all are returned and the user can select which they want
+
+Melvin:
+  Integrate order results by distance/price into final UI
+
+Kyle:
+  Finished UI changes. Made hospital results shown in labels with buttons, so as easier to see. Also integrated distance changes
+
+Arran:
+  Added functionality for user to request a route to be shown between their location and their selected hospital.
+
+Close:
+  Happy with everyones work, lets go over our process/prep for the client meeting again before heading up. 
+  
+No additional features/tasks have been given to each team member, but if there was anther sprint then this would be done. After speaking to the clients, these are the other tasks we would tackle:
+  Finish live location and accessibility integration. Start functionality for method of editing dataset (add/delete/edit), and start functionality for allowing users to give a custom ranking. We would also show distances of hospitals on the map, as well as giving tooltips on the map to show further info. We could also add a feature to allow users the ability to adjust the current filter while on the map screen, to save them moving between screens so much.

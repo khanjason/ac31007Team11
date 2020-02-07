@@ -1,7 +1,7 @@
 variables:
   NUGET_PATH: 'C:\Tools\nuget.exe'
   MSBUILD_PATH: 'D:\vs\MSBuild\15.0\Bin\amd64\msbuild.exe'
-  PROJ_PATH: 'C:\GitLab-Runner\builds\nToixDBZ\0\khanjason\ac31007Team11\Source Code\MediSearch\WindowsFormsApp'
+  PROJ_PATH: 'C:\GitLab-Runner\builds\nToixDBZ\0\khanjason\ac31007Team11\Sprint 2 Source Code\WindowsFormsApp0203'
 
 
 stages:

@@ -28,7 +28,24 @@ namespace WindowsFormsApp0203
 
 			procedureSearch();
 			loadMap(frm2);
-			displayResults(frm2);
+
+            if(rbtDistance.Checked)
+            {
+                for (int i = 0; i < hospitalDetailsList.Count; i++)
+                {
+                    string[] temp = hospitalDetailsList[i];
+                    hospitalDetailsList[i] = new string[13];
+
+                    for (int j = 0; j < hospitalDetailsList[i].Length - 1; j++)
+                    {
+                        hospitalDetailsList[i][j] = temp[j];
+                    }
+
+                    hospitalDetailsList[i][12] = hospitalDistanceList[i].ToString();
+                }
+                hospitalDetailsList = sortByDistance(hospitalDetailsList);
+            }
+            displayResults(frm2);
 		}
 
 		public void Close_page1_Click(object sender, EventArgs e)
@@ -259,9 +276,13 @@ namespace WindowsFormsApp0203
 			{
 				hospitalDetailsList = searchByCode(txtProcedure.Text);
 				hospitalDetailsList = checkRange(hospitalDetailsList);
-				hospitalDetailsList = sortByPrice(hospitalDetailsList);
-			}
-		}
+
+                if (rbtPrice.Checked)
+                {
+                    hospitalDetailsList = sortByPrice(hospitalDetailsList);
+                }
+            }
+        }
 
 		/// <summary>
 		/// Displays the hospital list
@@ -288,7 +309,16 @@ namespace WindowsFormsApp0203
 						entry += line[2] + "\r\n";
 					}
 					entry += "$" + string.Format("{0:0.00}", double.Parse(line[10])) + "\r\n";
-					entry += string.Format("{0:N2}", hospitalDistanceList[i]) + "km";
+
+                    if (rbtPrice.Checked)
+                    {
+                        entry += string.Format("{0:N2}", hospitalDistanceList[i]) + "km";
+                    }
+                    else
+                    {
+                        entry += string.Format("{0:N2}", hospitalDetailsList[i][12]) + "km";
+                    }
+                    
 
 					allEntries.Add(entry);
 
@@ -505,6 +535,14 @@ namespace WindowsFormsApp0203
 			return detailList;
 		}
 
+        public List<string[]> sortByDistance(List<string[]> DetailsList)
+        {
+            DetailsList = DetailsList.OrderBy(arr => Double.Parse(arr[12])).ToList();
+            return DetailsList;
+        }
+
+
+
 		public bool validateUserInput(string userInput)
 		{
 			if (userInput.Length != 3)
@@ -685,6 +723,9 @@ namespace WindowsFormsApp0203
 			return true;
 		}
 
+        private void Form1_searchandhistory_Load(object sender, EventArgs e)
+        {
 
-	}
+        }
+    }
 }

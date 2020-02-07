@@ -155,6 +155,3 @@ C:\Users\kylel\Desktop\WindowsFormsApp0203\obj\Debug\WindowsFormsApp0203.csproj.
 C:\Users\kylel\Desktop\WindowsFormsApp0203\obj\Debug\WindowsFormsApp0203.csproj.CopyComplete
 C:\Users\kylel\Desktop\WindowsFormsApp0203\obj\Debug\WindowsFormsApp0203.exe
 C:\Users\kylel\Desktop\WindowsFormsApp0203\obj\Debug\WindowsFormsApp0203.pdb
-C:\Users\Kyleleggate\Downloads\WindowsFormsApp0203\WindowsFormsApp0203\obj\Debug\WindowsFormsApp0203.csprojAssemblyReference.cache
-C:\Users\Kyleleggate\Downloads\WindowsFormsApp0203\WindowsFormsApp0203\obj\Debug\WindowsFormsApp0203.exe
-C:\Users\Kyleleggate\Downloads\WindowsFormsApp0203\WindowsFormsApp0203\obj\Debug\WindowsFormsApp0203.pdb

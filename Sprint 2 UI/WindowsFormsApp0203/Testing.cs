@@ -52,11 +52,11 @@ namespace WindowsFormsApp0203
 				var location = frm1.createPoint(pointLatLng.Value.Lat, pointLatLng.Value.Lng);
 				frm1.setMapPosition(location, frm2);
 				frm1.placeMarker(location, frm2);
-				frm1.addPointToList(location);
+				frm1.addPointToList(location, frm2);
 				frm1.createHospitalRoutes(location, frm2);
 			}
 
-			actual = frm1.pointsList.Count - 1;
+			actual = frm2.pointsList.Count - 1;
 			Assert.Equal(expected, actual);
 		}
 

@@ -34,9 +34,11 @@
 			this.Back_page3 = new System.Windows.Forms.Button();
 			this.Close_page3 = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.lstHospitalDetails = new System.Windows.Forms.ListBox();
 			this.button1 = new System.Windows.Forms.Button();
+			this.routeWindow = new GMap.NET.WindowsForms.GMapControl();
+			this.txtHopsitalDetails = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -51,6 +53,7 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.routeWindow);
 			this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.groupBox1.Location = new System.Drawing.Point(438, 1);
 			this.groupBox1.Name = "groupBox1";
@@ -83,23 +86,14 @@
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Controls.Add(this.lstHospitalDetails);
+			this.groupBox2.Controls.Add(this.txtHopsitalDetails);
 			this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.groupBox2.Location = new System.Drawing.Point(12, 153);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(411, 666);
 			this.groupBox2.TabIndex = 13;
 			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "Option";
-			// 
-			// lstHospitalDetails
-			// 
-			this.lstHospitalDetails.FormattingEnabled = true;
-			this.lstHospitalDetails.ItemHeight = 31;
-			this.lstHospitalDetails.Location = new System.Drawing.Point(6, 41);
-			this.lstHospitalDetails.Name = "lstHospitalDetails";
-			this.lstHospitalDetails.Size = new System.Drawing.Size(399, 593);
-			this.lstHospitalDetails.TabIndex = 0;
+			this.groupBox2.Text = "Details";
 			// 
 			// button1
 			// 
@@ -110,6 +104,41 @@
 			this.button1.TabIndex = 14;
 			this.button1.Text = "Copy to clipboard";
 			this.button1.UseVisualStyleBackColor = true;
+			// 
+			// routeWindow
+			// 
+			this.routeWindow.Bearing = 0F;
+			this.routeWindow.CanDragMap = true;
+			this.routeWindow.EmptyTileColor = System.Drawing.Color.Navy;
+			this.routeWindow.GrayScaleMode = false;
+			this.routeWindow.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+			this.routeWindow.LevelsKeepInMemory = 5;
+			this.routeWindow.Location = new System.Drawing.Point(6, 37);
+			this.routeWindow.MarkersEnabled = true;
+			this.routeWindow.MaxZoom = 18;
+			this.routeWindow.MinZoom = 1;
+			this.routeWindow.MouseWheelZoomEnabled = true;
+			this.routeWindow.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+			this.routeWindow.Name = "routeWindow";
+			this.routeWindow.NegativeMode = false;
+			this.routeWindow.PolygonsEnabled = true;
+			this.routeWindow.RetryLoadTile = 0;
+			this.routeWindow.RoutesEnabled = true;
+			this.routeWindow.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+			this.routeWindow.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+			this.routeWindow.ShowTileGridLines = false;
+			this.routeWindow.Size = new System.Drawing.Size(1109, 775);
+			this.routeWindow.TabIndex = 1;
+			this.routeWindow.Zoom = 5D;
+			// 
+			// txtHopsitalDetails
+			// 
+			this.txtHopsitalDetails.Location = new System.Drawing.Point(7, 38);
+			this.txtHopsitalDetails.Multiline = true;
+			this.txtHopsitalDetails.Name = "txtHopsitalDetails";
+			this.txtHopsitalDetails.ReadOnly = true;
+			this.txtHopsitalDetails.Size = new System.Drawing.Size(398, 622);
+			this.txtHopsitalDetails.TabIndex = 0;
 			// 
 			// Form3_information
 			// 
@@ -126,7 +155,9 @@
 			this.Text = "Information";
 			this.Load += new System.EventHandler(this.Form3_information_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.groupBox1.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
+			this.groupBox2.PerformLayout();
 			this.ResumeLayout(false);
 
         }
@@ -137,7 +168,8 @@
         private System.Windows.Forms.Button Back_page3;
         private System.Windows.Forms.Button Close_page3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ListBox lstHospitalDetails;
         private System.Windows.Forms.Button button1;
-    }
+		public GMap.NET.WindowsForms.GMapControl routeWindow;
+		private System.Windows.Forms.TextBox txtHopsitalDetails;
+	}
 }

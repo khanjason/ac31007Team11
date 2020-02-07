@@ -44,9 +44,12 @@ namespace WindowsFormsApp0203
 
         private void Continue_page1_Click(object sender, EventArgs e)
         {
-            Hide();//然后关闭.
-            Form3_information frm3 = new Form3_information();//实例化第二个窗体.
-            frm3.Show();//然后显示出来.
+            //Hide();//然后关闭.
+            //Form3_information frm3 = new Form3_information();//实例化第二个窗体.
+            //frm3.Show();//然后显示出来.
+
+            drawRoute();
+            refreshMap();
         }
 
         private void Form2_map_Load(object sender, EventArgs e)
@@ -56,6 +59,27 @@ namespace WindowsFormsApp0203
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
+
+        }
+
+        private void refreshMap()
+        {
+            mapWindow.Zoom--;
+            mapWindow.Zoom++;
+        }
+
+        private void drawRoute()
+        {
+            //create route variable to hold root info
+            var route = GoogleMapProvider.Instance.GetRoute(pointsList[0], pointsList[oldHighlightIndex], false, false, 5);
+
+            //create variable for adding route to map
+            var routeToAdd = new GMapRoute(route.Points, "Route just added");
+
+            //add route to overlay
+            var routeOverlay = new GMapOverlay();
+            routeOverlay.Routes.Add(routeToAdd);
+            mapWindow.Overlays.Add(routeOverlay);
 
         }
 

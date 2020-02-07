@@ -8,11 +8,19 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp0203
 {
+	/// <summary>
+	/// For managing the panel component of form 2
+	/// </summary>
 	class PanelManger
 	{
-		private Form2_map frm2;
-		private Panel myPanel;
+		private Form2_map frm2; //A reference to the form
+		private Panel myPanel; //Reference to the panel on form 2
 
+		/// <summary>
+		/// Initialises the manger with neccesary references
+		/// </summary>
+		/// <param name="frm2"></param>
+		/// <param name="myPanel"></param>
 		public PanelManger(Form2_map frm2, Panel myPanel)
 		{
 			this.frm2 = frm2;
@@ -20,6 +28,10 @@ namespace WindowsFormsApp0203
 			myPanel.AutoScroll = true;
 		}
 
+		/// <summary>
+		/// Genreates entries of Label Button couples
+		/// </summary>
+		/// <param name="details">The list of string for each labels text</param>
 		public void generateEntries(List<string> details)
 		{
 			int x = 3;

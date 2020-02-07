@@ -39,6 +39,9 @@ namespace WindowsFormsApp0203
 		//Dictionary constaining distance values
 		public Dictionary<string, double> distanceValues = new Dictionary<string, double>();
 
+		//Panel manager for form 2
+		PanelManger panelManger;
+
 		//Absolute minimum and maximum range of values
 		public double priceFloor = 0;
 		public double priceCeiling = 200000;
@@ -52,7 +55,6 @@ namespace WindowsFormsApp0203
 		public double distMax = 5000;
 
 		public List<String[]> hospitalDetailsList = new List<String[]>();
-		public List<PointLatLng> pointsList = new List<PointLatLng>();
 		public List<double> hospitalDistanceList = new List<double>();
 		public GeoCoderStatusCode statusCode;
 
@@ -84,15 +86,17 @@ namespace WindowsFormsApp0203
 			GMapProviders.GoogleMap.ApiKey = @"AIzaSyCgfKNFVdWfjXpEu29xUEjfekPIKBiHf1E";
 			frm2.mapWindow.MapProvider = GMapProviders.GoogleMap;
 
+			string userLocation = txtUserZip.Text.Trim() + "," + txtUserState.Text.Trim().ToUpper();
+
 			//if no input has been given, show error message
-			if (txtUserPosition.Text.Trim().Equals(""))
+			if (userLocation.Equals(""))
 			{
 				MessageBox.Show("Error: Please enter address.");
 			}
 			//if input has been given, find location and place marker
 			else
 			{
-				string[] addressString = txtUserPosition.Text.Split(',');
+				string[] addressString = userLocation.Split(',');
 				//if location is not valid, show error message
 				try
 				{
@@ -102,7 +106,7 @@ namespace WindowsFormsApp0203
 					}
 					else
 					{
-						var pointLatLng = GoogleMapProvider.Instance.GetPoint(txtUserPosition.Text.Trim(), out statusCode);
+						var pointLatLng = GoogleMapProvider.Instance.GetPoint(txtUserZip.Text.Trim(), out statusCode);
 
 						//if location is valid, find and place marker
 						if (statusCode == GeoCoderStatusCode.OK)
@@ -110,7 +114,7 @@ namespace WindowsFormsApp0203
 							var location = createPoint(pointLatLng.Value.Lat, pointLatLng.Value.Lng);
 							setMapPosition(location, frm2);
 							placeMarker(location, frm2);
-							addPointToList(location);
+							addPointToList(location, frm2);
 							createHospitalRoutes(location, frm2);
 						}
 					}
@@ -135,11 +139,11 @@ namespace WindowsFormsApp0203
 					var location = createPoint(pointLatLng.Value.Lat, pointLatLng.Value.Lng);
 					setMapPosition(location, frm2);
 
-					var route = GoogleMapProvider.Instance.GetRoute(pointsList[0], location, false, false, 5);
+					var route = GoogleMapProvider.Instance.GetRoute(frm2.pointsList[0], location, false, false, 5);
 
 					if(checkDist(Math.Round(route.Distance, 2)))
 					{
-						addPointToList(location);
+						addPointToList(location, frm2);
 						placeMarker(location, frm2);
 						hospitalDistanceList.Add(Math.Round(route.Distance, 2));
 					}
@@ -155,10 +159,10 @@ namespace WindowsFormsApp0203
 		//function to create a route between first 
 		private void createRoute(Form2_map frm2)
 		{
-			for (int i = 1;i < pointsList.Count;i++)
+			for (int i = 1;i < frm2.pointsList.Count;i++)
 			{
 				//create route variable to hold root info
-				var route = GoogleMapProvider.Instance.GetRoute(pointsList[0], pointsList[i], false, false, 5);
+				var route = GoogleMapProvider.Instance.GetRoute(frm2.pointsList[0], frm2.pointsList[i], false, false, 5);
 
 				//create variable for adding route to map
 				var routeToAdd = new GMapRoute(route.Points, "Route just added");
@@ -205,15 +209,14 @@ namespace WindowsFormsApp0203
 		{
 			//create marker and overlay for map, and add marker to it
 			GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.arrow);
-			GMapOverlay markers = new GMapOverlay("markers");
-			markers.Markers.Add(marker);
-			frm2.mapWindow.Overlays.Add(markers);
+			frm2.markers.Markers.Add(marker);
+			frm2.updateMap();
 		}
 
 		//function to add point to point list
-		public void addPointToList(PointLatLng point)
+		public void addPointToList(PointLatLng point, Form2_map frm2)
 		{
-			pointsList.Add(new PointLatLng(point.Lat, point.Lng));
+			frm2.pointsList.Add(new PointLatLng(point.Lat, point.Lng));
 		}
 
 		/// <summary>
@@ -233,8 +236,6 @@ namespace WindowsFormsApp0203
 			{
 				setDistRange(151, distance);
 			}
-
-			MessageBox.Show(distMax.ToString());
 		}
 
 		/// <summary>
@@ -268,20 +269,37 @@ namespace WindowsFormsApp0203
 		/// <param name="frm2">A reference to the second form</param>
 		public void displayResults(Form2_map frm2)
 		{
-			frm2.lstHospitalDetails.Items.Clear();
-			string s = "";
+			panelManger = new PanelManger(frm2, frm2.resultsPanel);
+			List<string> allEntries = new List<string>();
 			int i = 0;
 
 			if (hospitalDistanceList.Count != 0)
 			{
 				foreach (string[] line in hospitalDetailsList)
 				{
-					frm2.lstHospitalDetails.Items.Add(ConvertStringArrayToString(line));
-					frm2.lstHospitalDetails.Items.Add(hospitalDistanceList[i]);
-					frm2.lstHospitalDetails.Items.Add(line[10]);
-					frm2.lstHospitalDetails.Items.Add("\r\n");
+					string entry = "";
+
+					if (line[2].Length > 35)
+					{
+						entry += line[2].Substring(0,35) + "\r\n";
+					}
+					else
+					{
+						entry += line[2] + "\r\n";
+					}
+					entry += "$" + string.Format("{0:0.00}", double.Parse(line[10])) + "\r\n";
+					entry += string.Format("{0:N2}", hospitalDistanceList[i]) + "km";
+
+					allEntries.Add(entry);
+
+					//frm2.lstHospitalDetails.Items.Add(ConvertStringArrayToString(line));
+					//frm2.lstHospitalDetails.Items.Add(hospitalDistanceList[i]);
+					//frm2.lstHospitalDetails.Items.Add(line[10]);
+					//frm2.lstHospitalDetails.Items.Add("\r\n");
 					i++;
 				}
+
+				panelManger.generateEntries(allEntries);
 			}
 			else
 			{
